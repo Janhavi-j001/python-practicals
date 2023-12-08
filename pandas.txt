@@ -1,0 +1,132 @@
+import pandas
+mydataset = {
+  'subjects': ["english", "hindi", "maths"],
+  'marks': [33, 76, 90]
+}
+myvar = pandas.DataFrame(mydataset)
+print(myvar)
+
+
+import pandas as pd
+print(pd.__version__)
+
+
+import pandas as pd
+a = [1, 7, 2]
+demo = pd.Series(a)
+print(demo)
+
+
+import pandas as pd
+a = [1, 7, 2]
+demo = pd.Series(a)
+print(demo[0])
+
+// create lable
+import pandas as pd
+a = [1, 2, 3]
+myvar = pd.Series(a, index = ["ram", "shyam", "meena"])
+print(myvar)
+
+
+//acces value of shyam
+import pandas as pd
+a = [1, 2, 3]
+myvar = pd.Series(a, index = ["ram", "shyam", "meena"])
+print(myvar["shyam"])
+
+
+//locate row
+import pandas as pd
+data = {
+  'subjects': ["english", "hindi", "maths"],
+  'marks': [33, 76, 90]}
+df = pd.DataFrame(data)
+print (df.loc[1])
+
+
+// return 1 & 2
+import pandas as pd
+data = {'subjects': ["english", "hindi", "maths"],
+  'marks': [33, 76, 90]}
+df = pd.DataFrame(data)
+print (df.loc[[1,2]])
+
+
+//cummulative sum
+import pandas as pd
+data = {'Value': [1, 2, 3, 4, 5]}
+df = pd.DataFrame(data)
+df['Cumulative_Sum'] = df['Value'].cumsum()
+print(df)
+
+//Dropping Rows Based on a Condition
+import pandas as pd
+data = {'Value': [1, 2, 3, 4, 5]}
+df = pd.DataFrame(data)
+threshold = 3
+df = df[df['Value'] >= threshold]
+print(df)
+
+// sorting dataframes
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 22, 35],
+        'Salary': [50000, 60000, 45000, 70000]}
+df = pd.DataFrame(data)
+df_sorted_by_age = df.sort_values(by='Age')
+df_sorted_by_multiple = df.sort_values(by=['Age', 'Salary'], ascending=[True, False])
+print("Sorted by Age:")
+print(df_sorted_by_age)
+print("\nSorted by Age and Salary:")
+print(df_sorted_by_multiple)
+
+
+//drop duplicates
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Alice', 'David', 'Bob'],
+        'Age': [25, 30, 25, 35, 30],
+        'Salary': [50000, 60000, 50000, 70000, 60000]}
+df = pd.DataFrame(data)
+df_no_duplicates = df.drop_duplicates()
+df_no_duplicates_specific = df.drop_duplicates(subset=['Name', 'Age'])
+print("Original DataFrame:")
+print(df)
+print("\nDataFrame without duplicates (all columns):")
+print(df_no_duplicates)
+print("\nDataFrame without duplicates (specific columns):")
+print(df_no_duplicates_specific)
+
+
+//
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+        'Age': [25, 30, 22, 35, 28],
+        'Salary': [50000, 60000, 45000, 70000, 55000]}
+df = pd.DataFrame(data)
+df_head = df.head()
+print("Original DataFrame:")
+print(df)
+print("\nDataFrame Head (First Few Rows):")
+print(df_head)
+
+
+// tail()
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+        'Age': [25, 30, 22, 35, 28],
+        'Salary': [50000, 60000, 45000, 70000, 55000]}
+df = pd.DataFrame(data)
+df_tail = df.tail()
+print("Original DataFrame:")
+print(df)
+print("\nDataFrame Tail (Last Few Rows):")
+print(df_tail)
+
+//
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+        'Age': [25, 30, 22, 35, 28],
+        'Salary': [50000, 60000, 45000, 70000, 55000]}
+df = pd.DataFrame(data)
+df.info()

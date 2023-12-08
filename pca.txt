@@ -1,0 +1,125 @@
+//
+import numpy as np
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+X_mean = np.mean(X, axis=0)
+X_std = np.std(X, axis=0)
+X_standardized = (X - X_mean) / X_std
+# Calculate the covariance matrix
+cov_matrix = np.cov(X_standardized, rowvar=False)
+# Calculate the eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eigh(cov_matrix)
+# Sort eigenvalues and corresponding eigenvectors in descending order
+sorted_indices = np.argsort(eigenvalues)[::-1]
+eigenvalues = eigenvalues[sorted_indices]
+eigenvectors = eigenvectors[:, sorted_indices]
+# Print Principal Components
+print("Principal Components:")
+for i in range(eigenvectors.shape[1]):
+    print(f"PC{i + 1}: {eigenvectors[:, i]}")
+
+
+//Print Original Data Shape
+import numpy as np
+from sklearn.decomposition import PCA
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Apply PCA to calculate the principal components
+pca = PCA()
+X_pca = pca.fit_transform(X)
+# Print Original Data Shape
+print("Original data shape:", X.shape)
+
+// reduce data shape
+import numpy as np
+from sklearn.decomposition import PCA
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Choose the number of principal components
+num_components = 2
+# Apply PCA for dimensionality reduction
+pca = PCA(n_components=num_components)
+X_reduced = pca.fit_transform(X)
+# Print Reduced Data Shape
+print("Reduced data shape:", X_reduced.shape)
+
+// chosen number of Principal Components
+import numpy as np
+from sklearn.decomposition import PCA
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Choose the number of principal components
+num_components = 2
+# Apply PCA for dimensionality reduction with the chosen components
+pca = PCA(n_components=num_components)
+X_reduced = pca.fit_transform(X)
+# Print the chosen number of Principal Components
+print(f"Chosen number of principal components: {num_components}")
+
+//Print Covariance Matrix
+import numpy as np
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Standardize the data
+X_mean = np.mean(X, axis=0)
+X_std = np.std(X, axis=0)
+X_standardized = (X - X_mean) / X_std
+# Calculate Covariance Matrix
+cov_matrix = np.cov(X_standardized, rowvar=False)
+# Print Covariance Matrix
+print("Covariance Matrix:")
+print(cov_matrix)
+
+
+//"Standardized Data
+import numpy as np
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Standardize the data
+X_mean = np.mean(X, axis=0)
+X_std = np.std(X, axis=0)
+X_standardized = (X - X_mean) / X_std
+# Print Standardized Data
+print("Standardized Data:")
+print(X_standardized)
+
+//Print Eigenvalues and Eigenvectors
+import numpy as np
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Standardize the data
+X_mean = np.mean(X, axis=0)
+X_std = np.std(X, axis=0)
+X_standardized = (X - X_mean) / X_std
+# Calculate Covariance Matrix
+cov_matrix = np.cov(X_standardized, rowvar=False)
+# Calculate Eigenvalues and Eigenvectors
+eigenvalues, eigenvectors = np.linalg.eigh(cov_matrix)
+# Print Eigenvalues and Eigenvectors
+print("Eigenvalues:")
+print(eigenvalues)
+print("\nEigenvectors:")
+print(eigenvectors)
+
+
+//Print Projected Data
+import numpy as np
+from sklearn.decomposition import PCA
+# Generate a sample dataset
+np.random.seed(42)
+X = np.random.rand(100, 3)  # 100 samples with 3 features
+# Choose the number of principal components
+num_components = 2
+# Apply PCA for dimensionality reduction with the chosen components
+pca = PCA(n_components=num_components)
+X_reduced = pca.fit_transform(X)
+# Print Projected Data
+print("Projected Data onto New Subspace:")
+print(X_reduced)
+

@@ -1,0 +1,253 @@
+// Linear Regression
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+import numpy as np
+# Generate some example data
+np.random.seed(42)
+X = 2 * np.random.rand(100, 1)
+y = 4 + 3 * X + np.random.randn(100, 1)
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split
+(X, y, test_size=0.2, random_state=42)
+# Create a Linear Regression model
+model = LinearRegression()
+# Train the model on the training set
+model.fit(X_train, y_train)
+# Make predictions on the test set
+predictions = model.predict(X_test)
+# Print the model coefficients and intercept
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)
+# Evaluate the model performance using Mean Squared Error
+mse = mean_squared_error(y_test, predictions)
+print("Mean Squared Error:", mse)
+
+//K-Means Clustering:
+from sklearn.cluster import KMeans
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate some example data
+np.random.seed(42)
+X = np.concatenate([np.random.normal(0, 1, (100, 2)), np.random.normal(5, 1, (100, 2))])
+# Create a K-Means model with 2 clusters
+model = KMeans(n_clusters=2)
+# Fit the model to the data
+model.fit(X)
+# Get cluster labels and centroids
+labels = model.labels_
+centroids = model.cluster_centers_
+# Plot the data points and cluster centroids
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', alpha=0.5)
+plt.scatter(centroids[:, 0], centroids[:, 1],
+ marker='X', s=200, c='red', label='Centroids')
+plt.title("K-Means Clustering")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.legend()
+plt.show()
+
+//Confusion Matrix:
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+# Generate example true labels and predicted labels
+true_labels = [1, 0, 1, 2, 0, 1, 2, 2, 0, 1]
+predicted_labels = [1, 0, 1, 2, 0, 1, 2, 1, 0, 1]
+# Create the confusion matrix
+cm = confusion_matrix(true_labels, predicted_labels)
+# Plot the confusion matrix
+plt.figure(figsize=(4, 3))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False,
+            xticklabels=['Class 0', 'Class 1', 'Class 2'],
+            yticklabels=['Class 0', 'Class 1', 'Class 2'])
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted Labels")
+plt.ylabel("True Labels")
+plt.show()
+
+
+//Cross-Validation using scikit-learn:
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+# Generate example data
+X = np.random.rand(100, 5)
+y = np.random.randint(0, 2, 100)
+# Create a RandomForestClassifier
+model = RandomForestClassifier()
+# Perform cross-validation
+cv_scores = cross_val_score(model, X, y, cv=5)
+# Print the cross-validation scores
+print("Cross-Validation Scores:", cv_scores)
+print("Mean CV Score:", np.mean(cv_scores))
+
+//Data Splitting for Training and Testing:
+from sklearn.model_selection import train_test_split
+import numpy as np
+# Generate example data
+X = np.random.rand(100, 5)
+y = np.random.randint(0, 2, 100)
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split
+(X, y, test_size=0.2, random_state=42)
+# Print the shapes of the resulting sets
+print("X_train shape:", X_train.shape)
+print("X_test shape:", X_test.shape)
+print("y_train shape:", y_train.shape)
+print("y_test shape:", y_test.shape)
+
+//Decision Tree Classifier:
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import numpy as np
+# Generate example data
+X = np.random.rand(100, 5)
+y = np.random.randint(0, 2, 100)
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split
+(X, y, test_size=0.2, random_state=42)
+# Create a Decision Tree Classifier
+model = DecisionTreeClassifier()
+# Train the model on the training set
+model.fit(X_train, y_train)
+# Make predictions on the test set
+predictions = model.predict(X_test)
+# Evaluate the model accuracy
+accuracy = accuracy_score(y_test, predictions)
+print("Decision Tree Classifier Accuracy:", accuracy)
+
+
+// to load iris dataset −
+from sklearn.datasets import load_iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+feature_names = iris.feature_names
+target_names = iris.target_names
+print("Feature names:", feature_names)
+print("Target names:", target_names)
+print("\nFirst 10 rows of X:\n", X[:10])
+
+//Splitting the dataset
+from sklearn.datasets import load_iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+   X, y, test_size = 0.3, random_state = 1
+)
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape)
+
+// Train the Model
+from sklearn.datasets import load_iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+   X, y, test_size = 0.4, random_state=1
+)
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+classifier_knn = KNeighborsClassifier(n_neighbors = 3)
+classifier_knn.fit(X_train, y_train)
+y_pred = classifier_knn.predict(X_test)
+# Finding accuracy by comparing actual response values(y_test)with predicted response value(y_pred)
+print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+# Providing sample data and the model will make prediction out of that data
+sample = [[5, 5, 3, 2], [2, 4, 3, 5]]
+preds = classifier_knn.predict(sample)
+pred_species = [iris.target_names[p] for p in preds] print("Predictions:", pred_species)
+
+// Preprocessing the Data (Binarisation)
+import numpy as np
+from sklearn import preprocessing
+Input_data = np.array(
+   [2.1, -1.9, 5.5],
+   [-1.5, 2.4, 3.5],
+   [0.5, -7.9, 5.6],
+   [5.9, 2.3, -5.8]]
+)
+data_binarized = preprocessing.Binarizer(threshold=0.5).transform(input_data)
+print("\nBinarized data:\n", data_binarized)
+
+
+//Mean Removal
+import numpy as np
+from sklearn import preprocessing
+Input_data = np.array(
+   [2.1, -1.9, 5.5],
+   [-1.5, 2.4, 3.5],
+   [0.5, -7.9, 5.6],
+   [5.9, 2.3, -5.8]]
+)
+
+//Scaling
+import numpy as np
+from sklearn import preprocessing
+Input_data = np.array(
+   [
+      [2.1, -1.9, 5.5],
+      [-1.5, 2.4, 3.5],
+      [0.5, -7.9, 5.6],
+      [5.9, 2.3, -5.8]
+   ]
+)
+data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0,1))
+data_scaled_minmax = data_scaler_minmax.fit_transform(input_data)
+print ("\nMin max scaled data:\n", data_scaled_minmax)
+
+
+// Normalisation L1
+import numpy as np
+from sklearn import preprocessing
+Input_data = np.array(
+   [
+      [2.1, -1.9, 5.5],
+      [-1.5, 2.4, 3.5],
+      [0.5, -7.9, 5.6],
+      [5.9, 2.3, -5.8]
+   ]
+)
+data_normalized_l1 = preprocessing.normalize(input_data, norm='l1')
+print("\nL1 normalized data:\n", data_normalized_l1)
+
+
+// L2 
+import numpy as np
+from sklearn import preprocessing
+Input_data = np.array(
+   [
+      [2.1, -1.9, 5.5],
+      [-1.5, 2.4, 3.5],
+      [0.5, -7.9, 5.6],
+      [5.9, 2.3, -5.8]
+   ]
+)
+data_normalized_l2 = preprocessing.normalize(input_data, norm='l2')
+print("\nL1 normalized data:\n", data_normalized_l2)
+
+//Data as table
+import seaborn as sns
+iris = sns.load_dataset('iris')
+iris.head()
+
+
+//Data as Target array
+import seaborn as sns
+iris = sns.load_dataset('iris')
+%matplotlib inline
+import seaborn as sns; sns.set()
+sns.pairplot(iris, hue='species', height=3);
+
+
+
+
+
+

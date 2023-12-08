@@ -1,0 +1,84 @@
+//simple program to print array
+import numpy as np
+a=np.array([1,2,3,4,5])
+print(a)
+
+//simple program to print 2D array
+import numpy as np
+a=np.array([[1,2,3],[4,5,6]])
+print(a)
+
+//using type() of function to check type of object
+import numpy as np
+a=np.array([[1,2,3],[4,5,6]])
+print(type(a))
+
+// Check how many dimensions the arrays have
+ import numpy as np
+a=np.array(24)
+b=np.array([1,2])
+c=np.array([[1,2,3],[4,5,6]])
+d=np.array([[[1,2,3],[4,5,6],[7,8,9]]])
+
+print(a.ndim)
+print(b.ndim)
+print(c.ndim)
+print(d.ndim)
+
+//Create an array with 5 dimensions and verify that it has 5 dimensions
+import numpy as array
+a=np.array([1,2,3,4], ndmin=5)
+print(a)
+print("Array has",a.ndim ,"dimensions...")
+
+//array indexing on 1D
+import numpy as np
+a=np.array([1,2,3,4,5])
+print(a[3])
+
+import numpy as np
+a=np.array([1,2,3,4,5])
+print(a[2]+a[3])
+
+//Slice elements
+import numpy as np
+a = np.array([1,2,3,4,5,6,7,8])
+print(a[2:5])
+
+// Finding Intersection
+import numpy as np
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+newarr = np.intersect1d(arr1, arr2, assume_unique=True)
+print(newarr)
+
+//Find union of the following two set arrays:
+import numpy as np
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+newarr = np.union1d(arr1, arr2)
+print(newarr)
+
+//unique
+import numpy as np
+arr = np.array([1, 1, 1, 2, 3, 4, 5, 5, 6, 7])
+x = np.unique(arr)
+print(x)
+
+//
+import numpy as np
+arr = np.array([10, 15, 25, 5])
+newarr = np.diff(arr, n=2)
+print(newarr)
+
+//
+import numpy as np
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+x = np.prod([arr1, arr2])
+print(x)
+
+//round
+import numpy as np
+arr = np.around(3.1666, 2)
+print(arr)

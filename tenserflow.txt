@@ -1,0 +1,108 @@
+//Printing hello tensorflow
+import tensorflow as tf
+print(tf.constant("Hello, TensorFlow!").numpy())
+
+//Variables and Initialization
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+17
+# 5. Variables and Initialization
+var = tf.Variable(3)
+init = tf.compat.v1.global_variables_initializer()
+with tf.Session() as sess:
+    sess.run(init)
+    print("Variable:", sess.run(var))
+
+//create session
+import tensorflow as tf
+# Define a placeholder for input data
+X = tf.placeholder(tf.float32)
+# Define the linear regression model
+Y = X * 2 + 1
+# Create a TensorFlow session
+with tf.Session() as sess:
+    # Provide input data using the feed_dict parameter
+    result = sess.run(Y, feed_dict={X: [1, 2, 3, 4]})
+    print("Linear Regression with Placeholder:", result)
+
+//Long Short-Term Memory (LSTM)
+import tensorflow as tf
+input_data = tf.constant([[[1.0, 2.0], [2.0, 3.0], [3.0, 4.0]],
+                          [[4.0, 5.0], [5.0, 6.0], [6.0, 7.0]],
+                          [[7.0, 8.0], [8.0, 9.0], [9.0, 10.0]]], dtype=tf.float32)
+# Create an LSTM layer
+lstm_layer = tf.keras.layers.LSTM(3)
+# Pass input data through the LSTM layer
+output_lstm = lstm_layer(input_data)
+# Print the result
+print("Long Short-Term Memory (LSTM):")
+print(output_lstm.numpy())
+
+
+//Pooling Layer
+import tensorflow as tf
+input_data = tf.constant([[1, 2, 3, 4], 
+[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]], dtype=tf.float32)
+pooling = tf.nn.pool(input_data[None, ..., None], window_shape=[2, 2], pooling_type='MAX', padding='VALID')
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("Pooling Layer:")
+tf.print(pooling)
+
+//softmax 
+import tensorflow as tf
+logits = tf.constant([1.0, 2.0, 3.0])
+softmax = tf.nn.softmax(logits)
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("Softmax Function:", softmax)
+
+//Activation Functions
+import tensorflow as tf
+x = tf.constant([-2.0, -1.0, 0.0, 1.0, 2.0])
+relu = tf.nn.relu(x)
+sigmoid = tf.nn.sigmoid(x)
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("ReLU Activation:", relu)
+tf.print("Sigmoid Activation:", sigmoid)
+
+//Linear Regression
+import tensorflow as tf
+X = tf.constant([1, 2, 3, 4], dtype=tf.float32)
+Y = X * 2 + 1
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("Linear Regression:")
+tf.print(Y)
+
+// mat_multi
+import tensorflow as tf
+matrix_a = tf.constant([[1, 2], [3, 4]])
+matrix_b = tf.constant([[5, 6], [7, 8]])
+result_matrix = tf.matmul(matrix_a, matrix_b)
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("Matrix Multiplication:")
+tf.print(result_matrix)
+
+//Neural Network - Single Layer Perceptron
+import tensorflow as tf
+X = tf.constant([[0.0, 1.0], [2.0, 3.0]])
+W = tf.constant([[1.0], [1.0]])
+output = tf.matmul(X, W)
+# Using tf.print to ensure compatibility with both eager and graph execution modes
+tf.print("Single Layer Perceptron:", output)
+
+
+//Placeholder with Linear Regression
+import tensorflow as tf
+X = tf.placeholder(tf.float32)
+Y = X * 2 + 1
+with tf.compat.v1.Session() as sess:  # For TensorFlow 1.x compatibility
+    result = sess.run(Y, feed_dict={X: [1, 2, 3, 4]})
+    print("Linear Regression with Placeholder:", result)
+
+//multiply
+import tensorflow as tf
+a = tf.constant(2)
+b = tf.constant(3)
+with tf.compat.v1.Session() as sess:  # For TensorFlow 1.x compatibility
+    print("Addition:", sess.run(tf.add(a, b)))
+    print("Multiplication:", sess.run(tf.multiply(a, b)))
+

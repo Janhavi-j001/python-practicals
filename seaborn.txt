@@ -1,0 +1,123 @@
+//
+import seaborn as sb
+df = sb.load_dataset('tips')
+print ( df.head())
+
+// lineplot
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+var1=[1,2,3,4,5,6,7]
+var2=[2,3,4,5,6,7,9]
+x=pd.DataFrame({"var1":var1, "var2":var1})
+sns.lineplot(x="var1", y="var2", data=x)
+plt.show()
+
+
+//label
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+var1=[1,2,3,4,5,6,7]
+var2=[2,3,4,5,6,7,9]
+x=pd.DataFrame({"var1":var1, "var2":var1})
+sns.lineplot(x="var1", y="var2", data=x)
+plt.show()
+
+// show data()
+data=sns.load_dataset("iris")
+print(data)
+
+//
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.lineplot(x="sepal_width", y="petal_length", data=data)
+
+//hue
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.lineplot(x="sepal_width", y="petal_length", data=data, hue="species")
+
+//style
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.lineplot(x="sepal_width", y="petal_length",
+ data=data, hue="species", style="species")
+
+// hist
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.displot(data["sepal_width"])
+plt.show()
+
+// kde
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.displot(data["petal_width"],kde=True)
+plt.show()
+
+// barplot
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.barplot(x="sepal_length", y="petal_length", data=data)
+plt.show()
+
+// hue
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.barplot(x="sepal_length", y="petal_length", data=data, hue="species")
+plt.show()
+
+// scatter
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.scatterplot(x="sepal_length", y="petal_length", data=data, hue="species")
+plt.show()
+
+//style
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.scatterplot(x="sepal_length", y="petal_length", data=data, hue="species",style="species")
+plt.show()
+
+//violin
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.violinplot(x="sepal_length", y="petal_length", data=data, hue="species",style="species")
+plt.show()
+
+// boxplot
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.boxplot(x="sepal_length", y="petal_length", data=data)
+plt.show()
+
+// pairplot
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+data=sns.load_dataset("iris")
+sns.pairplot(data)
+plt.show()

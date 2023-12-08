@@ -1,0 +1,170 @@
+//optimization (minimization)
+import numpy as np
+from scipy.optimize import minimize
+# Define a simple objective function to minimize
+def objective_function(x):
+    return (x - 3) ** 2 + 5
+# Initial guess
+initial_guess = 0.0
+# Perform minimization
+result = minimize(objective_function, initial_guess)
+# Extract the minimized value
+minimized_value = result.fun
+# Print the result
+print(f"Minimized Value: {minimized_value}")
+
+
+//linear least squares fit
+import numpy as np
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+# Sample data for a linear relationship: y = mx + b
+x = np.array([1, 2, 3, 4, 5])
+y = 2 * x + 1 + np.random.normal(0, 0.5, len(x))  # Adding some noise
+# Define the linear function to fit
+def linear_function(x, m, b):
+    return m * x + b
+# Perform linear least squares fitting
+params, covariance = curve_fit(linear_function, x, y)
+# Extract the slope and intercept
+slope, intercept = params
+# Print the results
+print(f"Slope: {slope}")
+print(f"Intercept: {intercept}")
+# Plotting
+plt.scatter(x, y, label='Original Data')
+plt.plot(x, linear_function(x, slope, intercept), color='red', label='Linear Fit')
+plt.legend()
+plt.show()
+
+//singular value dicomposition 
+import numpy as np
+from scipy.linalg import svd
+# Create a sample matrix
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+# Perform singular value decomposition
+U, S, VT = svd(matrix)
+# Print U, S, and VT
+print("U matrix:")
+print(U)
+print("\nS matrix (singular values):")
+print(np.diag(S))
+print("\nVT matrix:")
+print(VT)
+
+//eigenvalue decomposition
+import numpy as np
+from scipy.linalg import eig
+# Create a sample matrix
+matrix = np.array([[4, -2], [1, 1]])
+# Perform eigenvalue decomposition
+eigenvalues, eigenvectors = eig(matrix)
+# Print eigenvalues and eigenvectors
+print("Eigenvalues:")
+print(eigenvalues)
+print("\nEigenvectors:")
+print(eigenvectors)
+
+
+//Fast Fourier Transform (FFT) 
+import numpy as np
+from scipy.fft import fft
+import matplotlib.pyplot as plt
+# Create a sample signal
+fs = 1000  # Sampling frequency
+t = np.linspace(0, 1, fs, endpoint=False)  # Time vector
+signal = np.sin(2 * np.pi * 50 * t) + 0.5 * np.sin(2 * np.pi * 120 * t)
+# Perform FFT
+fft_result = fft(signal)
+# Calculate frequencies
+frequencies = np.fft.fftfreq(len(fft_result), d=1/fs)
+# Plotting
+plt.figure(figsize=(10, 4))
+plt.subplot(1, 2, 1)
+plt.plot(t, signal)
+plt.title('Original Signal')
+plt.subplot(1, 2, 2)
+plt.plot(frequencies, np.abs(fft_result))
+plt.title('FFT Result')
+plt.xlabel('Frequency (Hz)')
+plt.ylabel('Amplitude')
+plt.show()
+
+//
+import numpy as np
+from scipy.signal import convolve
+import matplotlib.pyplot as plt
+# Create a signal and a kernel
+signal = np.array([1, 2, 1, 0, 1, 2, 1])
+kernel = np.array([1, -1])
+# Perform convolution
+result = convolve(signal, kernel, mode='same')
+# Plotting
+plt.figure(figsize=(8, 4))
+plt.subplot(1, 2, 1)
+plt.stem(signal, label='Signal')
+plt.title('Original Signal')
+plt.subplot(1, 2, 2)
+plt.stem(result, label='Convolution Result')
+plt.title('Convolution Result')
+plt.show()
+
+
+//Gaussian blur in image 
+import numpy as np
+from scipy.ndimage import gaussian_filter
+import matplotlib.pyplot as plt
+from scipy import misc
+# Load a sample image
+image = misc.face()
+# Apply Gaussian blur
+sigma = 2
+blurred_image = gaussian_filter(image, sigma=sigma)
+# Plotting
+plt.figure(figsize=(8, 4))
+plt.subplot(1, 2, 1)
+plt.imshow(image, cmap='gray')
+plt.title('Original Image')
+plt.subplot(1, 2, 2)
+plt.imshow(blurred_image, cmap='gray')
+plt.title(f'Gaussian Blur (Sigma={sigma})')
+plt.show()
+
+//cubic spline interpolation
+import numpy as np
+from scipy.interpolate import CubicSpline
+import matplotlib.pyplot as plt
+# Sample data
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 1, 4, 3, 5])
+# Create a cubic spline interpolation function
+cubic_spline = CubicSpline(x, y)
+# Define points for interpolation
+x_interp = np.linspace(1, 5, num=100)
+# Interpolate values
+y_interp = cubic_spline(x_interp)
+# Plotting
+plt.plot(x, y, 'o', label='Original Data')
+plt.plot(x_interp, y_interp, '-', label='Cubic Spline Interpolation')
+plt.legend()
+plt.show()
+
+
+// linear interpolation
+import numpy as np
+from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
+# Sample data
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 1, 4, 3, 5])
+# Create an interpolation function
+linear_interp = interp1d(x, y, kind='linear', fill_value='extrapolate')
+# Define points for interpolation
+x_interp = np.linspace(1, 5, num=100)
+# Interpolate values
+y_interp = linear_interp(x_interp)
+# Plotting
+plt.plot(x, y, 'o', label='Original Data')
+plt.plot(x_interp, y_interp, '-', label='Linear Interpolation')
+plt.legend()
+plt.show()

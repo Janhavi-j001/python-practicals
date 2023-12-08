@@ -1,0 +1,86 @@
+using library functions
+
+// pearsons correlation
+from scipy.stats import pearsonr
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 4, 5, 6]
+correlation, p_value = pearsonr(x, y)
+print("Pearson's correlation coefficient:", correlation)
+
+// standard deviation
+from numpy.polynomial import set_default_printstyle
+import statistics
+data = [1, 2, 3, 4, 5]
+std_deviation = statistics.stdev(data)
+print(std_deviation)
+
+//correlation
+import numpy as np
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 4, 5, 6]
+correlation = np.corrcoef(x, y)[0, 1]
+print(correlation)
+
+//variance
+import statistics
+data = [1, 2, 3, 4, 5]
+variance = statistics.variance(data)
+print(variance)
+
+// median
+import statistics
+data = [1, 2, 3, 4, 5]
+median = statistics.median(data)
+print(median)
+
+without using library functions
+
+//mean
+def calculate_mean(data):
+    return sum(data) / len(data)
+# Example usage:
+data = [10, 20, 30, 40, 50]
+mean_result = calculate_mean(data)
+print(f"Mean: {mean_result}")
+
+
+//median
+def calculate_median(data):
+    sorted_data = sorted(data)
+    n = len(sorted_data)
+    mid = n // 2
+    if n % 2 == 0:
+        return (sorted_data[mid - 1] + sorted_data[mid]) / 2
+    else:
+        return sorted_data[mid]
+# Example usage:
+data = [10, 20, 30, 40, 50]
+median_result = calculate_median(data)
+print(f"Median: {median_result}")
+
+//mode
+from statistics import mode
+# Example usage:
+data = [10, 20, 30, 30, 40, 50, 50]
+mode_result = mode(data)
+print(f"Mode: {mode_result}")
+
+//standard deviation
+from statistics import stdev
+# Example usage:
+data = [10, 20, 30, 40, 50]
+std_dev_result = stdev(data)
+print(f"Standard Deviation: {std_dev_result}")
+
+// variance
+from statistics import variance
+# Example usage:
+data = [10, 20, 30, 40, 50]
+variance_result = variance(data)
+print(f"Variance: {variance_result}")
+
+def calculate_variance(data):
+    mean = calculate_mean(data)
+    squared_diff = [(x - mean) ** 2 for x in data]
+    variance = sum(squared_diff) / len(data)
+    return variance

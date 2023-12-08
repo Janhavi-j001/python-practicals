@@ -1,0 +1,101 @@
+//scatter
+import matplotlib.pyplot as plt
+x=[1,2,3,4]
+y=[17,25,30,40]
+plt.title("scatter")
+size=[100,20,30,40]
+plt.scatter(x,y, color="r", s=size,marker="*")
+plt.show()
+
+
+//pie
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=["a","b","c","d"]
+plt.pie(x,labels=y)
+plt.title("new")
+plt.show()
+
+// pie
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=["a","b","c","d"]
+ex=[0.0,0.0,0.3,0.0]
+plt.pie(x,labels=y, explode=ex, autopct="%0.1f%%", shadow=True)
+plt.title("new")
+plt.show()
+
+// hist
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+x=np.random.randint(10,60,(50))
+print(x)
+no=[33, 45, 48 ,35, 18, 37, 31, 17, 36, 19, 11, 52,
+ 32, 58, 57, 22, 23, 42, 50, 54, 45, 22, 56, 10,
+ 44, 52, 14, 44, 37, 16, 56, 53, 52, 21, 19, 10, 59,
+ 36, 21, 33, 58, 58, 51, 17, 10, 48, 23, 29,
+ 3,8, 38]
+plt.hist(no)
+plt.show()
+
+// line
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+var=[1,2,3,4,5,6,7]
+var2=[2,3,4,5,9,8,5]
+sns.lineplot(x=)
+plt.plot(var,var2)
+plt.show()
+
+//bar
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=["a","b","c","d"]
+plt.bar(x,y)
+plt.title("new")
+plt.show()
+
+// width/color
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=["a","b","c","d"]
+plt.bar(x,y, width=20)
+plt.title("new")
+plt.show()
+
+//box
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=[18,62,30,45]
+plt.boxplot(x)
+plt.show()
+
+//notch
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=[18,62,30,45]
+plt.boxplot(x, notch=True)
+plt.show()
+
+//horizontal/width
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=[18,62,30,45]
+plt.boxplot(x, vert=False)
+plt.show()
+
+// color
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=[18,62,30,45]
+plt.boxplot(x, vert=False, patch_artist=True)
+plt.show()
+
+// mean
+import matplotlib.pyplot as plt
+x=[10,20,60,50]
+y=[18,62,30,45]
+plt.boxplot(x, vert=False, patch_artist=True, showmeans=True)
+plt.show()

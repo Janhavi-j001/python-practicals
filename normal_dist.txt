@@ -1,0 +1,152 @@
+//skewness
+# Importing library
+from scipy.stats import skew
+# Creating a dataset
+dataset = [88, 85, 82, 97, 67, 77, 74, 86,
+81, 95, 77, 88, 85, 76, 81]
+# Calculate the skewness
+print(skew(dataset, axis=0, bias=True))
+
+// kurtosis
+# Importing library
+from scipy.stats import kurtosis
+# Creating a dataset
+dataset = [88, 85, 82, 97, 67, 77, 74, 86,
+81, 95, 77, 88, 85, 76, 81]
+# Calculate the kurtosis
+print(kurtosis(dataset, axis=0, bias=True))
+
+//Generate Random Samples and Add Outliers
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate random samples from a normal distribution
+normal_samples = np.random.normal(0, 1, 950)
+# Generate outliers from a different distribution
+outliers = np.random.normal(10, 1, 50)
+# Combine normal samples and outliers
+samples_with_outliers = np.concatenate([normal_samples, outliers])
+# Plot the distribution with outliers
+plt.hist(samples_with_outliers, bins=30, density=True, alpha=0.5, color='b')
+plt.title("Normal Distribution with Outliers")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.show()
+
+//Generate Random Samples and Sort:
+import numpy as np
+# Generate random samples from a normal distribution
+random_samples = np.random.normal(0, 1, 1000)
+# Sort the samples
+sorted_samples = np.sort(random_samples)
+# Print or use the sorted samples as needed
+print("Sorted Normal Distribution Samples:")
+print(sorted_samples)
+
+//Two-Sample T-Test:
+import numpy as np
+from scipy.stats import ttest_ind
+# Generate two sets of random samples from normal distributions
+samples_1 = np.random.normal(0, 1, 1000)
+samples_2 = np.random.normal(0.5, 1, 1000)
+# Perform two-sample t-test
+t_stat, p_value = ttest_ind(samples_1, samples_2)
+# Print or use the test results as needed
+print("Two-Sample T-Test:")
+print(f"T-statistic: {t_stat}")
+print(f"P-value: {p_value}")
+
+//Shuffle Data Randomly
+import numpy as np
+# Generate random samples from a normal distribution
+original_data = np.random.normal(0, 1, 1000)
+# Shuffle the data randomly
+shuffled_data = np.random.permutation(original_data)
+# Print or use the shuffled data as needed
+print("Shuffled Data:")
+print(shuffled_data)
+
+//z_score
+import numpy as np
+# Generate random samples from a normal distribution
+random_samples = np.random.normal(0, 1, 1000)
+# Calculate Z-scores
+z_scores = (random_samples - np.mean(random_samples)) / np.std(random_samples)
+# Print or use the Z-scores as needed
+print("Z-Scores:")
+print(z_scores)
+
+// Plot Two Normal Distributions:
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate random samples from two normal distributions
+samples_1 = np.random.normal(0, 1, 1000)
+samples_2 = np.random.normal(2, 1.5, 1000)
+# Plot histograms for both distributions
+plt.hist(samples_1, bins=30, density=True, 
+alpha=0.5, color='b', label='Distribution 1')
+plt.hist(samples_2, bins=30, density=True,
+ alpha=0.5, color='g', label='Distribution 2')
+# Add labels and legend
+plt.title("Two Normal Distributions")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.legend()
+# Show the plot
+plt.show()
+
+// PDF (Probability Density Function):
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+# Generate random samples from a normal distribution
+random_samples = np.random.normal(0, 1, 1000)
+# Plot the histogram
+plt.hist(random_samples, 
+bins=30, density=True, alpha=0.5, color='b', label='Histogram')
+# Plot the PDF
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, np.mean(random_samples), np.std(random_samples))
+plt.plot(x, p, 'k', linewidth=2, label='PDF')
+# Add labels, title, and legend
+plt.title("Probability Density Function (PDF) of Normal Distribution")
+plt.xlabel("Value")
+plt.ylabel("Probability Density")
+plt.legend()
+# Show the plot
+plt.show()
+
+// CDF (Cumulative Distribution Function):
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+# Generate random samples from a normal distribution
+random_samples = np.random.normal(0, 1, 1000)
+# Sort the samples
+sorted_samples = np.sort(random_samples)
+# Calculate the CDF
+cumulative_prob = np.arange(len(sorted_samples)) / len(sorted_samples)
+# Plot the CDF
+plt.plot(sorted_samples, cumulative_prob, color='b', label='CDF')
+# Add labels, title, and legend
+plt.title("Cumulative Distribution Function (CDF) of Normal Distribution")
+plt.xlabel("Value")
+plt.ylabel("Cumulative Probability")
+plt.legend()
+# Show the plot
+plt.show()
+
+// Plot Histogram of Normal Distribution:
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate random samples from a normal distribution
+random_samples = np.random.normal(0, 1, 1000)
+# Plot the histogram
+plt.hist(random_samples, bins=30, density=True, alpha=0.5, color='b')
+# Add labels and title
+plt.title("Histogram of Normal Distribution")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+# Show the plot
+plt.show()
